@@ -13,13 +13,14 @@
   --font-size-base: 1.125rem;
   --font-size-body: 1.125rem;
   --font-size-heading: 1.5rem;
-  --line-height-relaxed: 1.75;
+  /* 行間: 読みやすさのため少し広め（患者さん向け温かみデザイン） */
+  --line-height-relaxed: 1.85;
 
-  /* 配色: 白と清潔感のあるブルー基調・コントラスト確保 */
+  /* 配色: 目に優しい薄いアイボリー背景・清潔感のあるブルー基調 */
   --color-kiduki-blue: #1e6fa8;
   --color-kiduki-blue-light: #e8f2f8;
   --color-kiduki-blue-muted: #f0f7fc;
-  --color-kiduki-surface: #ffffff;
+  --color-kiduki-surface: #faf8f5;
   --color-kiduki-ink: #1a2b3c;
   --color-kiduki-ink-muted: #4a5f73;
 
@@ -28,6 +29,10 @@
   --spacing-touch-lg: 1rem;
   --min-height-button: 2.75rem;
   --min-height-button-lg: 3rem;
+
+  /* 角丸: 柔らかい印象のため大きめ */
+  --radius-soft: 1rem;
+  --radius-soft-lg: 1.25rem;
 }
 
 @layer base {
@@ -45,29 +50,31 @@
 }
 
 @layer components {
-  /* 大きなタップ領域のボタン用 */
+  /* 大きなタップ領域のボタン用（角丸・立体感） */
   .btn-kiduki {
     min-height: var(--min-height-button-lg);
     padding: var(--spacing-touch) 1.5rem;
     font-size: 1.125rem;
     font-weight: 500;
-    border-radius: 0.5rem;
-    transition: background-color 0.15s ease, transform 0.05s ease;
+    border-radius: var(--radius-soft-lg);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: background-color 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
   }
 
   .btn-kiduki:active {
     transform: scale(0.98);
   }
 
-  /* テキストエリア: ゆったり書き込める */
+  /* テキストエリア: ゆったり書き込める・柔らかい角丸・軽い浮き */
   .textarea-kiduki {
     min-height: 8rem;
     padding: 1rem 1.25rem;
     font-size: 1.125rem;
-    line-height: 1.75;
-    border-radius: 0.5rem;
-    border: 1px solid #c5d4e0;
-    background-color: var(--color-kiduki-surface);
+    line-height: 1.85;
+    border-radius: var(--radius-soft-lg);
+    border: 1px solid #e0ddd8;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   }
 
   .textarea-kiduki::placeholder {

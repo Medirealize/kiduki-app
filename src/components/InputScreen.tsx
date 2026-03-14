@@ -275,10 +275,10 @@ export default function InputScreen() {
         {/* 入力画面 */}
         {step === 0 && (
           <>
-            <p className="text-kiduki-ink mb-3 text-[1.125rem] sm:text-[1.25rem] leading-relaxed font-medium">
+            <p className="text-kiduki-ink mb-3 text-[1.125rem] sm:text-[1.25rem] leading-loose font-medium">
               診察で気になっていることを、少しだけ書いてください。
             </p>
-            <p className="text-kiduki-ink-muted text-[1rem] sm:text-[1.125rem] mb-2">
+            <p className="text-kiduki-ink-muted text-[1rem] sm:text-[1.125rem] mb-2 leading-relaxed">
               推奨：15〜120文字（最低5文字、最大300文字）
             </p>
             <textarea
@@ -300,7 +300,7 @@ export default function InputScreen() {
                 type="button"
                 onClick={handleSubmit}
                 disabled={loading}
-                className="btn-kiduki w-full min-h-[3.25rem] text-[1.125rem] sm:text-[1.25rem] bg-[var(--color-kiduki-blue)] text-white rounded-xl shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="btn-kiduki w-full min-h-[3.25rem] text-[1.125rem] sm:text-[1.25rem] bg-[var(--color-kiduki-blue)] text-white rounded-2xl shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 aria-label={loading ? "整理中" : "AIで整理する"}
               >
                 {loading ? (
@@ -327,11 +327,11 @@ export default function InputScreen() {
         {/* 1画面1ステップ：問い1 選択 */}
         {step === 2 && generateResult && (
           <div className="flex flex-col flex-1">
-            <div className="rounded-xl bg-[var(--color-kiduki-blue-muted)] border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6">
+            <div className="rounded-2xl bg-white border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6 shadow-md">
               <p className="text-base font-semibold text-kiduki-blue mb-2">要約</p>
-              <p className="text-kiduki-ink text-[1.125rem] leading-relaxed">{generateResult.sum}</p>
+              <p className="text-kiduki-ink text-[1.125rem] leading-loose">{generateResult.sum}</p>
             </div>
-            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-relaxed">
+            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
               {generateResult.q1_question || "状況について、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
@@ -340,10 +340,10 @@ export default function InputScreen() {
                   key={i}
                   type="button"
                   onClick={() => handleSelectQ1(opt)}
-                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-xl bg-white border-2 border-gray-300 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors"
+                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-2xl bg-white border-2 border-gray-200 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors shadow-md"
                 >
                   <span className="font-bold text-kiduki-blue mr-2">{["A", "B", "C"][i]}.</span>
-                  <span className="leading-relaxed">{opt}</span>
+                  <span className="leading-loose">{opt}</span>
                 </button>
               ))}
             </div>
@@ -360,7 +360,7 @@ export default function InputScreen() {
         {/* 問い2 選択 */}
         {step === 3 && generateResult && (
           <div className="flex flex-col flex-1">
-            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-relaxed">
+            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
               {generateResult.q2_question || "気になっている点について、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
@@ -369,10 +369,10 @@ export default function InputScreen() {
                   key={i}
                   type="button"
                   onClick={() => handleSelectQ2(opt)}
-                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-xl bg-white border-2 border-gray-300 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors"
+                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-2xl bg-white border-2 border-gray-200 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors shadow-md"
                 >
                   <span className="font-bold text-kiduki-blue mr-2">{["A", "B", "C"][i]}.</span>
-                  <span className="leading-relaxed">{opt}</span>
+                  <span className="leading-loose">{opt}</span>
                 </button>
               ))}
             </div>
@@ -389,7 +389,7 @@ export default function InputScreen() {
         {/* 問い3 選択 */}
         {step === 4 && generateResult && (
           <div className="flex flex-col flex-1">
-            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-relaxed">
+            <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
               {generateResult.q3_question || "診察で確認したいことについて、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
@@ -399,10 +399,10 @@ export default function InputScreen() {
                   type="button"
                   onClick={() => handleSelectQ3Click(opt)}
                   disabled={loading}
-                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-xl bg-white border-2 border-gray-300 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors disabled:opacity-70"
+                  className="w-full min-h-[4rem] px-6 py-5 text-left text-[1.125rem] sm:text-[1.25rem] rounded-2xl bg-white border-2 border-gray-200 text-kiduki-ink hover:border-[var(--color-kiduki-blue)] hover:bg-[var(--color-kiduki-blue-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 transition-colors shadow-md disabled:opacity-70"
                 >
                   <span className="font-bold text-kiduki-blue mr-2">{["A", "B", "C"][i]}.</span>
-                  <span className="leading-relaxed">{opt}</span>
+                  <span className="leading-loose">{opt}</span>
                 </button>
               ))}
             </div>
@@ -430,19 +430,19 @@ export default function InputScreen() {
           <>
             <p className="text-kiduki-ink-muted text-[1rem] mb-4">医師にそのまま見せられる診察メモができました。</p>
             {/* メイン：洗練された診察用質問文（最終的な医師への質問文） */}
-            <div className="rounded-xl bg-[var(--color-kiduki-blue)] text-white p-6 mb-5 shadow-md">
+            <div className="rounded-2xl bg-[var(--color-kiduki-blue)] text-white p-6 mb-5 shadow-md">
               <p className="text-base font-semibold mb-2 opacity-95">■ 伝えたいこと（くわしく）</p>
-              <p className="text-[1.25rem] leading-relaxed font-medium">{refinedQuestion}</p>
+              <p className="text-[1.25rem] leading-loose font-medium">{refinedQuestion}</p>
             </div>
-            <div className="rounded-xl bg-[var(--color-kiduki-blue-muted)] border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6">
+            <div className="rounded-2xl bg-white border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6 shadow-md">
               <p className="text-base font-semibold text-kiduki-blue mb-2">■ 先生に伝えたいこと（まとめ）</p>
-              <p className="text-kiduki-ink text-[1.125rem] leading-relaxed">{generateResult?.sum}</p>
+              <p className="text-kiduki-ink text-[1.125rem] leading-loose">{generateResult?.sum}</p>
             </div>
             <div className="flex flex-col gap-4">
               <button
                 type="button"
                 onClick={handleCopy}
-                className="btn-kiduki w-full min-h-[3.25rem] text-[1.125rem] bg-[var(--color-kiduki-blue)] text-white rounded-xl shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 flex items-center justify-center gap-2"
+                className="btn-kiduki w-full min-h-[3.25rem] text-[1.125rem] bg-[var(--color-kiduki-blue)] text-white rounded-2xl shadow-md hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-kiduki-blue)] focus:ring-offset-2 flex items-center justify-center gap-2"
                 aria-label="診察メモをコピー"
               >
                 <CopyIcon />
@@ -451,7 +451,7 @@ export default function InputScreen() {
               <button
                 type="button"
                 onClick={handleRetry}
-                className="btn-kiduki w-full min-h-[3rem] text-[1.125rem] bg-white text-kiduki-ink border-2 border-gray-300 rounded-xl hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                className="btn-kiduki w-full min-h-[3rem] text-[1.125rem] bg-white text-kiduki-ink border-2 border-gray-200 rounded-2xl shadow-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
                 aria-label="もう一度やり直す"
               >
                 もう一度やり直す

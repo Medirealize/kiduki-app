@@ -12,9 +12,9 @@ const config: Config = {
         sans: ["var(--font-noto-sans-jp)", "sans-serif"],
       },
       fontSize: {
-        base: ["1.125rem", { lineHeight: "1.75" }],
-        lg: ["1.25rem", { lineHeight: "1.75" }],
-        xl: ["1.5rem", { lineHeight: "1.5" }],
+        base: ["1.125rem", { lineHeight: "1.85" }],
+        lg: ["1.25rem", { lineHeight: "1.85" }],
+        xl: ["1.5rem", { lineHeight: "1.75" }],
       },
       colors: {
         kiduki: {
