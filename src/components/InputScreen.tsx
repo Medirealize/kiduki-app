@@ -46,7 +46,7 @@ function SpinnerIcon() {
   );
 }
 
-/** 設計書 459-464 準拠：診察用メモのクリップボード形式 */
+/** 診察用メモのクリップボード形式（要約＋具体的な相談内容のみ） */
 function formatFinalMemo(memo: FinalMemo): string {
   return `【診察用メモ：KiDuKi】
 
@@ -54,12 +54,7 @@ function formatFinalMemo(memo: FinalMemo): string {
 ${memo.sum}
 
 ■ 具体的な相談内容
-${memo.refined_question}
-
-■ 整理したプロセスの記録
-- 状況：${memo.selected_q1}
-- 一番の懸念：${memo.selected_q2}
-- 診察での意図：${memo.selected_q3}`;
+${memo.refined_question}`;
 }
 
 const TOAST_COPY_MESSAGE = "コピーしました。診察室で先生に見せてください。";
@@ -439,17 +434,9 @@ export default function InputScreen() {
               <p className="text-base font-semibold mb-2 opacity-95">■ 具体的な相談内容</p>
               <p className="text-[1.25rem] leading-relaxed font-medium">{refinedQuestion}</p>
             </div>
-            <div className="rounded-xl bg-[var(--color-kiduki-blue-muted)] border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-5">
+            <div className="rounded-xl bg-[var(--color-kiduki-blue-muted)] border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6">
               <p className="text-base font-semibold text-kiduki-blue mb-2">■ 先生に伝えたいこと（要約）</p>
               <p className="text-kiduki-ink text-[1.125rem] leading-relaxed">{generateResult?.sum}</p>
-            </div>
-            <div className="rounded-xl bg-white border-2 border-gray-200 p-5 mb-6">
-              <p className="text-base font-semibold text-kiduki-ink-muted mb-2">■ 整理したプロセスの記録</p>
-              <ul className="text-kiduki-ink text-[1.125rem] space-y-2">
-                <li><span className="font-medium text-kiduki-ink-muted">状況：</span>{selectedQ1}</li>
-                <li><span className="font-medium text-kiduki-ink-muted">一番の懸念：</span>{selectedQ2}</li>
-                <li><span className="font-medium text-kiduki-ink-muted">診察での意図：</span>{selectedQ3}</li>
-              </ul>
             </div>
             <div className="flex flex-col gap-4">
               <button
