@@ -46,14 +46,14 @@ function SpinnerIcon() {
   );
 }
 
-/** 診察用メモのクリップボード形式（要約＋具体的な相談内容のみ） */
+/** 診察用メモのクリップボード形式（要約＋伝えたいことのみ・中学校常用漢字レベル） */
 function formatFinalMemo(memo: FinalMemo): string {
   return `【診察用メモ：KiDuKi】
 
-■ 先生に伝えたいこと（要約）
+■ 先生に伝えたいこと（まとめ）
 ${memo.sum}
 
-■ 具体的な相談内容
+■ 伝えたいこと（くわしく）
 ${memo.refined_question}`;
 }
 
@@ -431,11 +431,11 @@ export default function InputScreen() {
             <p className="text-kiduki-ink-muted text-[1rem] mb-4">医師にそのまま見せられる診察メモができました。</p>
             {/* メイン：洗練された診察用質問文（最終的な医師への質問文） */}
             <div className="rounded-xl bg-[var(--color-kiduki-blue)] text-white p-6 mb-5 shadow-md">
-              <p className="text-base font-semibold mb-2 opacity-95">■ 具体的な相談内容</p>
+              <p className="text-base font-semibold mb-2 opacity-95">■ 伝えたいこと（くわしく）</p>
               <p className="text-[1.25rem] leading-relaxed font-medium">{refinedQuestion}</p>
             </div>
             <div className="rounded-xl bg-[var(--color-kiduki-blue-muted)] border-2 border-[var(--color-kiduki-blue-light)] p-5 mb-6">
-              <p className="text-base font-semibold text-kiduki-blue mb-2">■ 先生に伝えたいこと（要約）</p>
+              <p className="text-base font-semibold text-kiduki-blue mb-2">■ 先生に伝えたいこと（まとめ）</p>
               <p className="text-kiduki-ink text-[1.125rem] leading-relaxed">{generateResult?.sum}</p>
             </div>
             <div className="flex flex-col gap-4">
