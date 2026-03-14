@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import type { GenerateResultWithOptions, FinalMemo } from "@/types";
 
 const PLACEHOLDER =
-  "例：最近体調が不安です\n薬の副作用が心配です\n先生に聞きにくいことがあります";
+  "例：処方日数を延ばしたいです\n通院の負担を相談したいです\n先生に聞きたいことがあります";
 
 function CopyIcon() {
   return (
@@ -276,16 +276,16 @@ export default function InputScreen() {
         {step === 0 && (
           <>
             <p className="text-kiduki-ink mb-3 text-[1.125rem] sm:text-[1.25rem] leading-loose font-medium">
-              診察で気になっていることを、少しだけ書いてください。
+              先生にお話ししたいことを、なんでも書いてみてください。
             </p>
             <p className="text-kiduki-ink-muted text-[1rem] sm:text-[1.125rem] mb-2 leading-relaxed">
-              推奨：15〜120文字（最低5文字、最大300文字）
+              目安は15〜120文字です（5文字以上から、300文字まで書けます）
             </p>
             <textarea
               className="textarea-kiduki w-full resize-y text-[1.125rem] min-h-[10rem]"
               placeholder={PLACEHOLDER}
               rows={5}
-              aria-label="気になっていること"
+              aria-label="先生にお話ししたいこと"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               disabled={loading}
