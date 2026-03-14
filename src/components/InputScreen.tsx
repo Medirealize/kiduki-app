@@ -332,7 +332,7 @@ export default function InputScreen() {
               <p className="text-kiduki-ink text-[1.125rem] leading-loose">{generateResult.sum}</p>
             </div>
             <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
-              {generateResult.q1_question || "状況について、あてはまるものを1つ選んでください"}
+              {generateResult.q1_question || "背景について、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
               {generateResult.q1_options.map((opt, i) => (
@@ -361,7 +361,7 @@ export default function InputScreen() {
         {step === 3 && generateResult && (
           <div className="flex flex-col flex-1">
             <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
-              {generateResult.q2_question || "気になっている点について、あてはまるものを1つ選んでください"}
+              {generateResult.q2_question || "生活への影響について、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
               {generateResult.q2_options.map((opt, i) => (
@@ -390,7 +390,7 @@ export default function InputScreen() {
         {step === 4 && generateResult && (
           <div className="flex flex-col flex-1">
             <p className="text-kiduki-ink font-semibold text-[1.125rem] sm:text-[1.25rem] mb-5 leading-loose">
-              {generateResult.q3_question || "診察で確認したいことについて、あてはまるものを1つ選んでください"}
+              {generateResult.q3_question || "医師に伝えたい優先順位について、あてはまるものを1つ選んでください"}
             </p>
             <div className="space-y-4">
               {generateResult.q3_options.map((opt, i) => (
