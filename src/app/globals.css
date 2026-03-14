@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   KiDuKi デザインシステム
+   世代を超えて心地よいユニバーサルデザイン
+   WCAG 2.1 AA 準拠・視認性・誤タップ防止
+   ======================================== */
+
+:root {
+  /* ベースフォント: 18px 推奨（Tailwind base で 1.125rem） */
+  --font-size-base: 1.125rem;
+  --font-size-body: 1.125rem;
+  --font-size-heading: 1.5rem;
+  --line-height-relaxed: 1.75;
+
+  /* 配色: 白と清潔感のあるブルー基調・コントラスト確保 */
+  --color-kiduki-blue: #1e6fa8;
+  --color-kiduki-blue-light: #e8f2f8;
+  --color-kiduki-blue-muted: #f0f7fc;
+  --color-kiduki-surface: #ffffff;
+  --color-kiduki-ink: #1a2b3c;
+  --color-kiduki-ink-muted: #4a5f73;
+
+  /* 余白: ボタン・入力エリアの余白を広く（誤タップ防止） */
+  --spacing-touch: 0.875rem;
+  --spacing-touch-lg: 1rem;
+  --min-height-button: 2.75rem;
+  --min-height-button-lg: 3rem;
+}
+
+@layer base {
+  html {
+    font-size: 18px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-[var(--color-kiduki-surface)] text-[var(--color-kiduki-ink)];
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-relaxed);
+    font-feature-settings: "palt" 1;
+  }
+}
+
+@layer components {
+  /* 大きなタップ領域のボタン用 */
+  .btn-kiduki {
+    min-height: var(--min-height-button-lg);
+    padding: var(--spacing-touch) 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+  }
+
+  .btn-kiduki:active {
+    transform: scale(0.98);
+  }
+
+  /* テキストエリア: ゆったり書き込める */
+  .textarea-kiduki {
+    min-height: 8rem;
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    border-radius: 0.5rem;
+    border: 1px solid #c5d4e0;
+    background-color: var(--color-kiduki-surface);
+  }
+
+  .textarea-kiduki::placeholder {
+    color: var(--color-kiduki-ink-muted);
+    opacity: 0.8;
+  }
+
+  .textarea-kiduki:focus {
+    outline: 2px solid var(--color-kiduki-blue);
+    outline-offset: 2px;
+    border-color: var(--color-kiduki-blue);
+  }
+}
