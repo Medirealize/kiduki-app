@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Lock } from "lucide-react";
 import type { GenerateResultWithOptions, FinalMemo } from "@/types";
 
 const PLACEHOLDER =
@@ -296,12 +295,6 @@ export default function InputScreen() {
                 {error}
               </p>
             )}
-            <div className="mt-4 flex gap-2 rounded-xl bg-[var(--color-kiduki-blue-muted)] border border-[var(--color-kiduki-blue-light)] p-3 text-[var(--color-kiduki-ink-muted)]" role="note" aria-label="プライバシーについて">
-              <Lock className="flex-shrink-0 mt-0.5 w-4 h-4 text-[var(--color-kiduki-blue)]" aria-hidden />
-              <p className="text-sm leading-relaxed">
-                このアプリは、あなたの思考整理を助けるための「使い捨てのメモ帳」です。入力された内容はあなたのブラウザ内でのみ一時的に処理され、サーバーに保存されたり、第三者に公開されたりすることは一切ありません。診察が終わって画面を閉じれば、すべてのデータは消去されます。
-              </p>
-            </div>
             <div className="mt-8">
               <button
                 type="button"
@@ -319,6 +312,9 @@ export default function InputScreen() {
                   "整理する"
                 )}
               </button>
+              <p className="mt-4 text-center text-xs text-gray-400 leading-relaxed max-w-md mx-auto" role="note" aria-label="プライバシーについて">
+                ※このアプリは使い捨てのメモ帳です。入力された内容はサーバーに保存されず、画面を閉じればすべて消去されます。安心してお使いください。
+              </p>
             </div>
           </>
         )}
