@@ -76,12 +76,29 @@ export default function InputScreen() {
   const [showToast, setShowToast] = useState(false);
   const [originalInput, setOriginalInput] = useState("");
   const mainRef = useRef<HTMLElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const minHeightRef = useRef<number>(0);
 
   useEffect(() => {
     if (step >= 2 && step <= 6 && mainRef.current) {
       mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [step]);
+
+  /** 入力欄の高さを3行以上で内容に合わせて自動調整（スクロールバーなし・下のボタン等は自然に連動） */
+  const adjustTextareaHeight = () => {
+    const el = textareaRef.current;
+    if (!el) return;
+    if (minHeightRef.current === 0) minHeightRef.current = el.offsetHeight;
+    const minH = minHeightRef.current;
+    el.style.height = "0px";
+    el.style.height = `${Math.max(minH, el.scrollHeight)}px`;
+  };
+
+  useEffect(() => {
+    if (step !== 0) return;
+    adjustTextareaHeight();
+  }, [input, step]);
 
   function getErrorMessage(status: number, serverMessage?: string | null): string {
     if (serverMessage?.trim()) return serverMessage;
@@ -282,12 +299,14 @@ export default function InputScreen() {
               目安は15〜120文字です（5文字以上から、300文字まで書けます）
             </p>
             <textarea
-              className="textarea-kiduki w-full resize-y text-[1.125rem] min-h-[10rem]"
+              ref={textareaRef}
+              className="textarea-kiduki w-full text-[1.125rem]"
               placeholder={PLACEHOLDER}
-              rows={5}
+              rows={3}
               aria-label="先生にお話ししたいこと"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onFocus={adjustTextareaHeight}
               disabled={loading}
             />
             {error && (
