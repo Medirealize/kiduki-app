@@ -254,8 +254,8 @@ export default function InputScreen() {
           KiDuKi
         </h1>
         <p
-          className="mt-3 font-medium leading-relaxed"
-          style={{ color: "#4b5563", fontSize: "1.2rem" }}
+          className="mt-3 font-medium leading-tight"
+          style={{ color: "#4b5563", fontSize: "clamp(0.7rem, 3.8vw, 1.2rem)" }}
         >
           〜「言えばよかった」を、診察室でゼロにする〜
         </p>
