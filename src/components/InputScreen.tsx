@@ -252,8 +252,21 @@ export default function InputScreen() {
       )}
 
       <header className="pt-8 pb-4 px-4 text-center flex-shrink-0">
-        <p className="text-kiduki-blue font-semibold text-[1.25rem] tracking-wide">KiDuKi</p>
-        <h1 className="mt-2 text-[1.5rem] font-semibold text-kiduki-ink">診察前の思考整理</h1>
+        <h1
+          className="font-semibold tracking-wide leading-tight"
+          style={{ color: "var(--color-kiduki-blue)", fontSize: "clamp(2rem, 8vw, 3rem)" }}
+        >
+          KiDuKi
+        </h1>
+        <p
+          className="mt-3 font-medium leading-relaxed"
+          style={{ color: "#4b5563", fontSize: "1.2rem" }}
+        >
+          〜「言えばよかった」を、診察室でゼロにする〜
+        </p>
+        <p className="mt-3 text-[1.5rem] font-semibold text-kiduki-ink">
+          診察前の思考整理
+        </p>
         {(step === 2 || step === 3 || step === 4) && (
           <p className="mt-2 text-kiduki-ink-muted text-[1rem]">
             {step === 2 && "問い 1／3"}
