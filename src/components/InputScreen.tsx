@@ -296,7 +296,7 @@ export default function InputScreen() {
               先生にお話ししたいことを、なんでも書いてみてください。
             </p>
             <p className="text-kiduki-ink-muted text-[1rem] sm:text-[1.125rem] mb-2 leading-relaxed">
-              目安は15〜120文字です（5文字以上から、300文字まで書けます）
+              300文字まで自由に書いてみてください。
             </p>
             <textarea
               ref={textareaRef}
@@ -331,8 +331,8 @@ export default function InputScreen() {
                   "整理する"
                 )}
               </button>
-              <p className="mt-4 text-center text-xs text-gray-400 leading-relaxed max-w-md mx-auto" role="note" aria-label="プライバシーについて">
-                ※このアプリは使い捨てのメモ帳です。入力された内容はサーバーに保存されず、画面を閉じればすべて消去されます。安心してお使いください。
+              <p className="mt-4 text-left text-sm text-gray-400 leading-relaxed" role="note" aria-label="プライバシーについて">
+                ※このアプリは使い捨てのメモ帳です。入力された内容は<strong className="font-bold text-gray-500">サーバーに保存されず</strong>、画面を閉じればすべて消去されます。<strong className="font-bold text-gray-500">安心してお使いください。</strong>
               </p>
             </div>
           </>
