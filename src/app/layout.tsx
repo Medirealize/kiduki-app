@@ -10,8 +10,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "KiDuKi",
-  description: "診察前の気づきを整理するアプリ",
+  title: "診察のおとも",
+  description: "先生に伝えたいことが、スッとまとまる",
 };
 
 export default function RootLayout({
