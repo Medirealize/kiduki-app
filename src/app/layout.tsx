@@ -10,8 +10,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "診察のおとも",
-  description: "先生に伝えたいことが、スッとまとまる",
+  title: "診察室のおとも",
+  description: "〜診察室のおとも〜",
 };
 
 export default function RootLayout({

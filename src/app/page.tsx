@@ -9,7 +9,7 @@ export default function Home() {
     <div
       className="min-h-screen bg-[var(--color-kiduki-surface)] text-[var(--color-kiduki-ink)]"
       role="main"
-      aria-label="診察のおとも 診察前の思考整理"
+      aria-label="診察室のおとも 診察前の思考整理"
     >
       <InputScreen />
     </div>
