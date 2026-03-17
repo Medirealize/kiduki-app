@@ -48,7 +48,7 @@ function SpinnerIcon() {
 
 /** 診察用メモのクリップボード形式（要約＋伝えたいことのみ・中学校常用漢字レベル） */
 function formatFinalMemo(memo: FinalMemo): string {
-  return `【診察用メモ：診察室のおとも】
+  return `【診察用メモ：これ見せて。】
 
 ■ 先生に伝えたいこと（まとめ）
 ${memo.sum}
@@ -268,7 +268,7 @@ export default function InputScreen() {
           className="font-semibold tracking-wide leading-tight"
           style={{ color: "var(--color-kiduki-blue)", fontSize: "clamp(2rem, 8vw, 3rem)" }}
         >
-          診察室のおとも
+          これ見せて。
         </h1>
         <p
           className="mt-3 font-medium leading-tight"

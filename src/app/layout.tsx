@@ -10,7 +10,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "診察室のおとも",
+  title: "これ見せて。",
   description: "〜診察室のおとも〜",
 };
 
